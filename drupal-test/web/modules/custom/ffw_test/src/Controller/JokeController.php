@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Get all applications per user.
  */
-class ApplicationsController extends ControllerBase {
+class JokeController extends ControllerBase {
 
   private $apiRequestService;
 

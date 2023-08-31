@@ -12,3 +12,11 @@ ffw_test.joke-add:
     _title: 'Jokes'
   requirements:
     _permission: 'administer jokes'
+
+ffw_test.create_joke:
+  path: '/joke'
+  defaults:
+    _controller: '\Drupal\ffw_test\Controller\JokeController::getJoke'
+    _title: 'Create joke'
+  requirements:
+    _user_is_logged_in: 'TRUE'
