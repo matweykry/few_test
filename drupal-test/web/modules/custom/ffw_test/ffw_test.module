@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * @file
+ * Provides a jokes entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\ffw_test\Entity\Jokes;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function ffw_test_theme() {
+  return [
+    'jokes' => [
+      'render element' => 'elements',
+    ],
+    'create_joke' => [
+      'variables' => [
+        'joke' => [],
+        'createJokeForm' => []
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for jokes templates.
+ *
+ * Default template: jokes.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the jokes information and any
+ *     fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_jokes(array &$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function ffw_test_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_reassign':
+      // Anonymize jokess.
+      $storage = \Drupal::entityTypeManager()->getStorage('jokes');
+      $jokes_ids = $storage->getQuery()
+        ->condition('uid', $account->id())
+        ->execute();
+      foreach ($storage->loadMultiple($jokes_ids) as $jokes) {
+        $jokes->setOwnerId(0);
+        $jokes->save();
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_predelete() for user entities.
+ */
+function ffw_test_user_predelete(UserInterface $account) {
+  // Delete jokess.
+  $storage = \Drupal::entityTypeManager()->getStorage('jokes');
+  $jokes_ids = $storage->getQuery()
+    ->condition('uid', $account->id())
+    ->execute();
+  $jokess = $storage->loadMultiple($jokes_ids);
+  $storage->delete($jokess);
+}

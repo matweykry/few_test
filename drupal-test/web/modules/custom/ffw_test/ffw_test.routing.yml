@@ -1,0 +1,14 @@
+entity.jokes.settings:
+  path: 'admin/structure/jokes'
+  defaults:
+    _form: '\Drupal\ffw_test\Form\JokesSettingsForm'
+    _title: 'Jokes'
+  requirements:
+    _permission: 'administer jokes'
+ffw_test.joke-add:
+  path: 'admin/structure/jokes'
+  defaults:
+    _form: '\Drupal\ffw_test\Form\JokesSettingsForm'
+    _title: 'Jokes'
+  requirements:
+    _permission: 'administer jokes'

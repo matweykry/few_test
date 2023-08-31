@@ -1,0 +1,5 @@
+jokes.add_form:
+  title: 'Add jokes'
+  route_name: entity.jokes.add_form
+  appears_on:
+    - entity.jokes.collection

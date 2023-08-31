@@ -1,0 +1,13 @@
+<div class="joke">
+  <ul>
+    {% for value in joke %}
+      <li>
+        <p class="joke__title">joke.</p>
+        <p class="joke__value">joke</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="joke-form">
+  {{ createJokeForm }}
+</div>

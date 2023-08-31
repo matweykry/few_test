@@ -1,0 +1,22 @@
+entity.jokes.settings:
+  title: 'Settings'
+  route_name: entity.jokes.settings
+  base_route: entity.jokes.settings
+entity.jokes.view:
+  title: 'View'
+  route_name: entity.jokes.canonical
+  base_route: entity.jokes.canonical
+entity.jokes.edit_form:
+  title: 'Edit'
+  route_name: entity.jokes.edit_form
+  base_route: entity.jokes.canonical
+entity.jokes.delete_form:
+  title: 'Delete'
+  route_name: entity.jokes.delete_form
+  base_route: entity.jokes.canonical
+  weight: 10
+entity.jokes.collection:
+  title: 'Jokes'
+  route_name: entity.jokes.collection
+  base_route: system.admin_content
+  weight: 10

@@ -1,0 +1,6 @@
+name: FFW Test
+description: Custom Drupal module that integrates with a third-party API(https://api.chucknorris.io/ jokes/random)..
+package: Custom
+
+type: module
+core_version_requirement: ^9.4 || ^10

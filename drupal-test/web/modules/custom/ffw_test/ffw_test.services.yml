@@ -1,0 +1,4 @@
+services:
+  ffw_test.apiRequestSenderService:
+    class: Drupal\ffw_test\ApiRequestSenderService
+    arguments: [ '@http_client', '@logger.factory' ]

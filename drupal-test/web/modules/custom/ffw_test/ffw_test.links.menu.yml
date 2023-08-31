@@ -1,0 +1,10 @@
+entity.jokes.settings:
+  title: 'Jokes'
+  description: 'Configure a Jokes entity type.'
+  route_name:  entity.jokes.settings
+  parent: system.admin_structure
+entity.jokes.collection:
+  title: 'Jokes'
+  description: 'List of jokes.'
+  route_name: entity.jokes.collection
+  parent: system.admin_content

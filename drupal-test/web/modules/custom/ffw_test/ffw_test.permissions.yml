@@ -1,0 +1,3 @@
+administer jokes:
+  title: 'Administer jokes settings'
+  restrict access: true

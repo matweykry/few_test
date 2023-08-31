@@ -1,0 +1,10 @@
+entity.jokes.edit_form:
+  route_name: entity.jokes.edit_form
+  group: jokes
+  title: Edit
+
+entity.jokes.delete_form:
+  route_name: entity.jokes.delete_form
+  group: jokes
+  title: Delete
+  weight: 10
